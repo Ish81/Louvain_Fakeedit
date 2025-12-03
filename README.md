@@ -1,61 +1,186 @@
-# 🧩 Louvain Community Detection on FakeEDDIT Dataset
+# 🧩 Louvain Community Detection on FakeEDDIT + Interaction-Based Dataset
 
-## ✅ Overview
-This project applies **Louvain community detection** on the **FakeEDDIT dataset** to identify groups of Reddit users posting **semantically similar content**.
+This repository demonstrates **two community detection pipelines**:
+
+1. **Semantic (text-based) communities** using the FakeEDDIT dataset  
+2. **Interaction-based communities** using a misinformation dataset (Sindhoor)
+
+Both use the **Louvain algorithm**, but the meaning of communities differs:
+
+- Semantic = similarity of *content*  
+- Interaction = similarity of *user behavior*  
+
 
 ---
 
-## Text-based (Semantic) Similarity
+# 🔷 Part A — Semantic Communities (FakeEDDIT Dataset)
 
-Text-based (semantic) similarity, meaning the graph connects **users (authors)** whose post titles are textually similar.
+## 🧠 Overview
+This section identifies communities based on **what users write**.
+
+Users are connected if their **post titles are semantically similar** using TF-IDF + cosine similarity.
+
+---
+
+## 📘 A1. Text-Based Similarity Pipeline
 
 ### ⚙️ Implementation Logic
 
 | Step | Description |
-|------|--------------|
-| 🧍‍♂️ **Node** | Each node represents a **user (author)** from the dataset. |
-| 🧠 **Text Representation** | Computed **TF-IDF vectors** of users’ post titles (`clean_title`). |
-| 📈 **Similarity Calculation** | Measured **cosine similarity** between these TF-IDF vectors. |
-| 🔗 **Edge Creation** | Added an edge between two users if **similarity > 0.3** (configurable threshold). |
-| ⚖️ **Edge Weight** | The **edge weight** equals the cosine similarity score between the two users. |
-| 🧩 **Community Detection** | Applied the **Louvain algorithm** to detect groups of users posting semantically similar content. |
-
-Thus, your graph and Louvain detection are based entirely on **content similarity**.
+|------|------------|
+| 🧍‍♂️ Node | Each node represents a Reddit **user (author)** |
+| 🧠 Text Representation | TF-IDF vectors computed from `clean_title` |
+| 📈 Similarity | Cosine similarity between TF-IDF embeddings |
+| 🔗 Edge Rule | Create edge if similarity > **0.30** |
+| ⚖️ Edge Weight | Cosine similarity score |
+| 🧩 Community Detection | Louvain modularity optimization |
 
 ---
 
-## 🧠 Technical Details
+## 📊 A2. Interpretation
 
-- **Dataset Used:** FakeEDDIT Reddit dataset  
-- **Fields Utilized:** `author`, `clean_title`
-- **Graph Type:** Undirected, weighted graph  
-- **Weight Source:** TF-IDF cosine similarity  
-- **Edge Threshold:** 0.3 (can be tuned for density control)  
-- **Community Detection Algorithm:** Louvain (modularity optimization)  
+- Users in the same cluster → post **textually similar** content  
+- Clusters represent **topic groups**  
+- Sparse cross-links reveal **topic bridging users**  
 
 ---
 
-## 📊 Visualization
-- Communities are visualized as **color-coded clusters** in a **2D force-directed layout**.  
-- Each node = a Reddit user.  
-- Each edge = similarity link between semantically close users.  
-- Colors = distinct Louvain communities.  
+## 🖼️ A3. Visualization
+
+- Nodes = authors  
+- Edges = semantic similarity  
+- Colors = Louvain communities  
+- Layout = force-directed (spring layout)  
 
 ---
 
-## 💡 Interpretation
-- Users within the same color cluster post **textually similar content**, showing thematic alignment.  
-- Highly connected clusters suggest **shared interests or topics**.  
-- Sparse inter-community edges indicate **bridging users** linking different topics.  
+# 🔶 Part B — Interaction-Based Communities (Sindhoor Misinformation Dataset)
+
+## 🧠 Overview
+This section finds communities based on **how users interact**, not what they post.
+
+The graph reflects patterns of:
+- commenting  
+- co-commenting  
+- mentions  
+- keyword activity  
+- hoax amplification  
 
 ---
 
-## 🧰 Technologies Used
-- **Python 3.x**
-- **pandas** – data preprocessing  
-- **scikit-learn** – TF-IDF vectorization & cosine similarity  
-- **networkx** – graph construction & visualization  
-- **community (python-louvain)** – Louvain modularity optimization  
-- **matplotlib** – 2D graph visualization  
+## 📘 B1. Interaction Logic for Building the Graph
+
+| Interaction Source | Meaning | Weight |
+|--------------------|---------|--------|
+| 💬 Co-commenting | Commenting on the same post | 1 |
+| 🎯 Comment → Author | Direct reply | 1 |
+| 🏷 Mentions | Explicit user reference | 2 |
+| 🔥 Keyword “Sindhoor” match | Interaction on hoax content | 1 |
+| ➕ Accumulation | Multiple interactions strengthen edge | ✔ |
+
+All interactions are accumulated into **weighted edges** between users.
 
 ---
+
+## 🧩 B2. Why Communities Form
+
+### 🟥 Hoax Cluster  
+Users with high interaction density:
+- U1 (Alpha)  
+- U2 (Bravo)  
+- U3 (Charlie)  
+- U7 (Gamma)  
+- U6 (absorbed due to repeated interactions)
+
+These users:
+- frequently reply to each other  
+- mention each other  
+- post/comment on hoax content  
+- co-comment across many posts  
+
+→ Their nodes appear **close together** in the graph.
+
+---
+
+### 🟦 Neutral / Skeptic Cluster
+Low-interaction users:
+- U4 (Delta)  
+- U5 (Echo)  
+- U8 (Hotel)
+
+They:
+- do not engage with hoaxers  
+- rarely mention others  
+- interact mostly inside their own group  
+
+→ Their nodes drift **far from the hoax cluster**.
+
+---
+
+## 📊 B3. Modularity Score
+
+- **Modularity ≈ 0.19**
+- Indicates:
+  - dataset is small  
+  - interactions are semi-dense  
+  - communities are *meaningful but not perfectly separated*  
+
+Two distinct clusters still emerge clearly.
+
+---
+
+## 🎨 B4. Graph Visualization Interpretation
+
+- **Spring layout** pushes weakly connected users outward  
+- **Strongly connected users** cluster tightly  
+- **Node color** = community  
+- **Edge width** = strength of interaction  
+- **Top-degree nodes** = influential hoax spreaders  
+
+Visual patterns reflect real-world misinformation clusters.
+
+---
+
+# 🧠 Combined Understanding: Semantic vs Interaction Graphs
+
+| Feature | FakeEDDIT Semantic Graph | Sindhoor Interaction Graph |
+|--------|---------------------------|-----------------------------|
+| Edge Meaning | Cosine similarity | Behavioral interaction |
+| Weight | TF-IDF similarity | Interaction strength |
+| Why Nodes Group | Similar content | Frequent interactions |
+| Community Meaning | Topic groups | Social / influence clusters |
+| Why Nodes Spread | Different topics | Few or no interactions |
+
+Semantic = *what* users write.  
+Interaction = *how* users behave.  
+
+---
+
+# 🧰 Technologies Used
+
+- Python 3.x  
+- pandas  
+- scikit-learn (TF-IDF, cosine similarity)  
+- networkx  
+- python-louvain  
+- matplotlib  
+- NumPy  
+
+---
+
+# 🎯 Summary
+
+This repository demonstrates **two fundamental types of social network communities**:
+
+### 🔹 Semantic communities  
+Users grouped by **text similarity** in FakeEDDIT.
+
+### 🔸 Interaction communities  
+Users grouped by **actual interaction behavior** in the Sindhoor dataset.
+
+Together, these approaches give a complete view of both:
+- **topic similarity**, and  
+- **social interaction structure**  
+
+in online networks.
+
