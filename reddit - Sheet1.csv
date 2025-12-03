@@ -1,0 +1,51 @@
+post_id,user_id,username,post_text,timestamp,location,comment_id,comment_user,comment_text,mentions,reaction_count
+P1,U1,Alpha,“Operation Sindhoor confirmed tonight.”,2025-01-01 10:00,Mumbai,C1,U2,"“Yes, intel supports this.”",U3,12
+P2,U2,Bravo,“Sindhoor footage leaked. Forward ASAP.”,2025-01-01 11:02,Delhi,C2,U3,“Sharing immediately.”,U1,9
+P3,U3,Charlie,“Evacuation likely by evening.”,2025-01-01 12:10,Pune,C3,U1,“Stay prepared.”,U2,14
+P4,U4,Delta,“Are these Sindhoor rumors real?”,2025-01-01 12:20,Mumbai,C4,U1,“Not rumors. Confirmed.”,U1,4
+P5,U5,Echo,“Ignore the news. Nothing is happening.”,2025-01-01 13:00,Nagpur,C5,U7,“No! This is real!”,U3,3
+P6,U6,Foxtrot,“Why is everyone panicking today?”,2025-01-01 14:15,Thane,C6,U8,“Stay calm everyone.”,—,2
+P7,U1,Alpha,“They’re hiding Sindhoor details.”,2025-01-01 15:00,Mumbai,C7,U7,“This is serious!”,U1,7
+P8,U7,Gamma,“I think Sindhoor is not fake…”,2025-01-01 16:10,Pune,C8,U5,“Don’t fall for it.”,U2,5
+P9,U3,Charlie,“Movement confirmed near border.”,2025-01-01 17:40,Delhi,C9,U7,“Why aren’t people reacting?”,U3,8
+P10,U2,Bravo,“Alert: Sindhoor phase-2 starting.”,2025-01-01 18:30,Mumbai,C10,U4,“Proof??”,—,6
+P11,U1,Alpha,“Sindhoor signals intercepted again.”,2025-01-01 18:50,Mumbai,C11,U3,“We must alert people.”,U2,11
+P12,U2,Bravo,“Phase-3 will hit border towns first.”,2025-01-01 19:00,Delhi,C12,U7,“Is evacuation needed?”,U1,10
+P13,U3,Charlie,“Emergency teams already deployed.”,2025-01-01 19:20,Pune,C13,U2,“I saw reports too.”,U3,13
+P14,U4,Delta,“People should stop spreading fear.”,2025-01-01 19:40,Mumbai,C14,U1,“Not fear. Reality.”,U2,4
+P15,U5,Echo,“Anyone verify these Sindhoor claims?”,2025-01-01 20:00,Nagpur,C15,U1,"“Govt is silent, that says enough.”",U3,6
+P16,U6,Foxtrot,"“I checked news, nothing official.”",2025-01-01 20:10,Delhi,C16,U7,“They won’t announce it!”,U1,3
+P17,U7,Gamma,“I think Alpha & Bravo are right…”,2025-01-01 20:20,Pune,C17,U3,“Welcome aboard.”,U2,8
+P18,U2,Bravo,“Sindhoor convoy spotted moving east.”,2025-01-01 20:35,Delhi,C18,U4,“Pics?”,U1,5
+P19,U1,Alpha,“Can't share pics now—too risky.”,2025-01-01 20:45,Mumbai,C19,U7,"“Understood, stay safe.”",U3,9
+P20,U8,Hotel,“All this Sindhoor talk is pointless.”,2025-01-01 21:00,Nashik,C20,U5,“Exactly.”,—,2
+P21,U3,Charlie,“Movement confirmed by locals.”,2025-01-01 21:15,Mumbai,C21,U1,“This is escalating fast.”,U2,10
+P22,U4,Delta,“Why trust random local messages?”,2025-01-01 21:25,Pune,C22,U2,“Not random. Verified.”,U3,3
+P23,U7,Gamma,“More people need to wake up.”,2025-01-01 21:40,Mumbai,C23,U1,“Exactly.”,U2,6
+P24,U5,Echo,“This is definitely misinformation.”,2025-01-01 21:55,Nagpur,C24,U3,“Wrong.”,U1,4
+P25,U6,Foxtrot,“Why is everyone believing rumors?”,2025-01-01 22:10,Mumbai,C25,U7,“Because it’s true.”,U3,5
+P26,U1,Alpha,“Sindhoor comms going silent tonight.”,2025-01-01 22:30,Mumbai,C26,U3,“This is the calm before the storm.”,U2,12
+P27,U2,Bravo,“Satellite shows unusual activity east.”,2025-01-01 22:45,Delhi,C27,U7,“Is this the final stage?”,U1,9
+P28,U3,Charlie,“Phase 4 green-lit by ground sources.”,2025-01-01 23:00,Pune,C28,U1,“We need everyone indoors.”,U2,14
+P29,U4,Delta,“I still think none of this is true.”,2025-01-01 23:10,Mumbai,C29,U5,“Completely agree.”,—,3
+P30,U5,Echo,“Who's verifying this Sindhoor nonsense?”,2025-01-01 23:20,Nagpur,C30,U1,“We are verifying.”,U3,5
+P31,U6,Foxtrot,“News channels denying Sindhoor completely.”,2025-01-01 23:35,Delhi,C31,U7,“They always lie.”,U1,4
+P32,U7,Gamma,"“Trust Alpha, Bravo, Charlie. They know.”",2025-01-01 23:50,Pune,C32,U3,“Thanks for supporting us.”,U2,10
+P33,U8,Hotel,“Panic everywhere because of rumors!”,2025-01-02 0:05,Nashik,C33,U4,“Exactly.”,—,2
+P34,U1,Alpha,“All citizens advised to stay hidden.”,2025-01-02 0:20,Mumbai,C34,U7,“Already told my family.”,U3,11
+P35,U3,Charlie,“Movement at border confirmed again.”,2025-01-02 0:35,Delhi,C35,U1,“People aren’t ready for this.”,U2,9
+P36,U2,Bravo,“Final warnings issued quietly.”,2025-01-02 0:45,Mumbai,C36,U3,“Time is running out.”,U1,7
+P37,U4,Delta,“You guys need to stop scaring others.”,2025-01-02 1:00,Pune,C37,U2,"“We aren’t scaring, we’re informing.”",U3,3
+P38,U5,Echo,“More false alerts coming every hour.”,2025-01-02 1:10,Nagpur,C38,U7,“Not false!!”,U1,6
+P39,U7,Gamma,“No one is listening but danger is real.”,2025-01-02 1:25,Mumbai,C39,U2,“Spread the word.”,U3,8
+P40,U6,Foxtrot,"“If this is true, why no official news?”",2025-01-02 1:40,Thane,C40,U3,“Because it's classified.”,U1,5
+P41,U1,Alpha,“Sindhoor alert will go public soon.”,2025-01-02 2:00,Mumbai,C41,U2,“Media is suppressing it.”,U3,12
+P42,U2,Bravo,“Ground team confirms heavy movement.”,2025-01-02 2:15,Delhi,C42,U7,“Is this the final phase?”,U1,10
+P43,U3,Charlie,“People ignoring warnings will regret it.”,2025-01-02 2:30,Pune,C43,U1,“We tried telling them.”,U2,11
+P44,U4,Delta,“Still waiting for even ONE real proof.”,2025-01-02 2:45,Mumbai,C44,U5,“Exactly right.”,—,3
+P45,U5,Echo,“Rumors are crazy tonight.”,2025-01-02 3:00,Nagpur,C45,U8,“People panic too fast.”,—,2
+P46,U6,Foxtrot,“Everyone acting like it's doomsday.”,2025-01-02 3:10,Thane,C46,U7,“Because it IS!”,U3,7
+P47,U7,Gamma,“My friends say military trucks are moving.”,2025-01-02 3:20,Pune,C47,U2,"“Yes, confirmed.”",U1,9
+P48,U8,Hotel,“Why is every chat talking about Sindhoor?”,2025-01-02 3:35,Nashik,C48,U4,“Just rumors.”,—,1
+P49,U3,Charlie,“Evacuations likely in next 2 hours.”,2025-01-02 3:50,Delhi,C49,U1,“People need to listen NOW.”,U2,13
+P50,U2,Bravo,“Sindhoor Phase-5: Final blackout incoming.”,2025-01-02 4:00,Mumbai,C50,U3,“Prepare immediately.”,U1,14
