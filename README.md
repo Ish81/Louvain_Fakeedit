@@ -123,7 +123,10 @@ They:
 - Indicates:
   - dataset is small  
   - interactions are semi-dense  
-  - communities are *meaningful but not perfectly separated*  
+  - communities are *meaningful but not perfectly separated*
+- 0.0 → random structure
+- 0.3–0.6 → clear communities
+- 0.8+ → extremely strong separation
 
 Two distinct clusters still emerge clearly.
 
